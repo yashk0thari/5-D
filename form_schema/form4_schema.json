@@ -1,0 +1,331 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "formName": {
+            "type": "string",
+            "title": "Form Name"
+        },
+        "ombApproval": {
+            "type": "object",
+            "properties": {
+                "ombNumber": {
+                    "type": "string"
+                },
+                "estimatedAverageBurdenHoursPerResponse": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "ombNumber",
+                "estimatedAverageBurdenHoursPerResponse"
+            ]
+        },
+        "nameAndAddressOfReportingPerson": {
+            "type": "object",
+            "properties": {
+                "lastName": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "middleName": {
+                    "type": "string"
+                },
+                "street": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "zip": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "lastName",
+                "firstName",
+                "middleName",
+                "street",
+                "city",
+                "state",
+                "zip"
+            ]
+        },
+        "issuerNameAndTickerOrTradingSymbol": {
+            "type": "object",
+            "properties": {
+                "issuerName": {
+                    "type": "string"
+                },
+                "tickerSymbol": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "issuerName",
+                "tickerSymbol"
+            ]
+        },
+        "dateOfEarliestTransaction": {
+            "type": "string",
+            "format": "date"
+        },
+        "ifTransactionDateOfOriginalFiled": {
+            "type": "string",
+            "format": "date"
+        },
+        "relationshipOfReportingPersonsToIssuer": {
+            "type": "object",
+            "properties": {
+                "isDirector": {
+                    "type": "boolean"
+                },
+                "isOfficer": {
+                    "type": "boolean"
+                },
+                "officerTitle": {
+                    "type": "string"
+                },
+                "isTenPercentOwner": {
+                    "type": "boolean"
+                },
+                "isOther": {
+                    "type": "boolean"
+                },
+                "otherSpecify": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "isDirector",
+                "isOfficer",
+                "officerTitle",
+                "isTenPercentOwner",
+                "isOther",
+                "otherSpecify"
+            ]
+        },
+        "individualOrGroupFiling": {
+            "type": "object",
+            "properties": {
+                "isOneReportingPerson": {
+                    "type": "boolean"
+                },
+                "isMoreThanOneReportingPerson": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "nonDerivativeSecurities": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "titleOfSecurity": {
+                        "type": "string"
+                    },
+                    "transactionDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "deemedExecutionDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "transactionCode": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "string"
+                            },
+                            "v": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "securitiesAcquiredOrDisposedOf": {
+                        "type": "object",
+                        "properties": {
+                            "amountOfSecurities": {
+                                "type": "number"
+                            },
+                            "acquiredOrDisposed": {
+                                "type": "string",
+                                "enum": [
+                                    "A",
+                                    "D"
+                                ]
+                            },
+                            "price": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "amountOfSecuritiesBeneficiallyOwnedFollowingReportedTransaction": {
+                        "type": "number"
+                    },
+                    "ownershipForm": {
+                        "type": "string",
+                        "enum": [
+                            "D",
+                            "I"
+                        ]
+                    },
+                    "natureOfIndirectBeneficialOwnership": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "derivativeSecurities": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "titleOfDerivativeSecurity": {
+                        "type": "string"
+                    },
+                    "conversionOrExercisePriceOfDerivativeSecurity": {
+                        "type": "number"
+                    },
+                    "transactionDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "deemedExecutionDate": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "transactionCode": {
+                        "type": "object",
+                        "properties": {
+                            "code": {
+                                "type": "string"
+                            },
+                            "v": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "numberOfDerivativeSecuritiesAcquiredOrDisposed": {
+                        "type": "object",
+                        "properties": {
+                            "A": {
+                                "type": "number"
+                            },
+                            "D": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "dateExercisableAndExpirationDate": {
+                        "type": "object",
+                        "properties": {
+                            "dateExercisable": {
+                                "type": "string",
+                                "format": "date"
+                            },
+                            "expirationDate": {
+                                "type": "string",
+                                "format": "date"
+                            }
+                        }
+                    },
+                    "titleAndAmountOfSecuritiesUnderlyingDerivativeSecurity": {
+                        "type": "object",
+                        "properties": {
+                            "title": {
+                                "type": "string"
+                            },
+                            "amount": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "priceOfDerivativeSecurity": {
+                        "type": "number"
+                    },
+                    "numberDerivativeSecuritiesBeneficiallyOwnedFollowingReportedTransaction": {
+                        "type": "number"
+                    },
+                    "ownershipForm": {
+                        "type": "string",
+                        "enum": [
+                            "D",
+                            "I"
+                        ]
+                    },
+                    "natureOfIndirectBeneficialOwnership": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "titleOfDerivativeSecurity",
+                    "conversionOrExercisePriceOfDerivativeSecurity",
+                    "transactionDate",
+                    "deemedExecutionDate",
+                    "transactionCode",
+                    "numberOfDerivativeSecuritiesAcquiredOrDisposed",
+                    "dateExercisableAndExpirationDate",
+                    "titleAndAmountOfSecuritiesUnderlyingDerivativeSecurity",
+                    "priceOfDerivativeSecurity",
+                    "numberDerivativeSecuritiesBeneficiallyOwnedFollowingReportedTransaction",
+                    "ownershipForm",
+                    "natureOfIndirectBeneficialOwnership"
+                ]
+            }
+        },
+        "explanationOfResponses": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "field": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "signatureOfReportingPersonAndDate": {
+            "type": "object",
+            "properties": {
+                "signatoryName": {
+                    "type": "string"
+                },
+                "signatoryTitle": {
+                    "type": "string"
+                },
+                "dateSigned": {
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "required": [
+                "signatoryName",
+                "signatoryTitle",
+                "dateSigned"
+            ]
+        }
+    },
+    "required": [
+        "formName",
+        "ombApproval",
+        "nameAndAddressOfReportingPerson",
+        "issuerNameAndTickerOrTradingSymbol",
+        "dateOfEarliestTransaction",
+        "ifTransactionDateOfOriginalFiled",
+        "relationshipOfReportingPersonsToIssuer",
+        "nonDerivativeSecurities",
+        "derivativeSecurities",
+        "explanationOfResponses",
+        "signatureOfReportingPersonAndDate"
+    ]
+}
